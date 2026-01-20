@@ -3,8 +3,12 @@
 	padding: 0;
 }
 
+.row {
+    margin: 20px 0 30px 0;
+}
+
 .modal-super-wide {
-        max-width: 95% !important;
+    max-width: 95% !important;
 }
 
 .modalHeaderList {
@@ -17,6 +21,15 @@
     font-family: Arial, sans-serif;
     font-size: 18px;
 }
+
+.chapterTitel {
+    font-weight: 600;
+}
+
+.txtB {
+    font-weight: 700;
+}
+
 
 .modal-footer {
 	display: block;
