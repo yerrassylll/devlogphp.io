@@ -1,0 +1,34 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.modal-super-wide {
+        max-width: 95% !important;
+}
+
+.modalHeaderList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.modalHeaderItem {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+.modal-footer {
+	display: block;
+}
+
+.modalFooterList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.modalFooterItem {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
