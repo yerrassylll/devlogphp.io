@@ -13,12 +13,34 @@
 </head>
 <body>	
 
-<h4>На данной странице, собраны все задачи которые я решил используя язык программирование PHP </h4>
+<header>
+
+<nav class="navbar navbar-dark bg-dark shadow-sm mb-5">
+  <div class="container">
+    <span class="navbar-brand mb-0 h1">🚀 DEV LOG PHP</span>
+  </div>
+</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+					<h4 class="headerTitle">На данной странице собраны все задачи, которые я решил, используя язык программирования PHP</h4>
+					<p>Изучаю PHP с помощью искусственного интеллекта Gemini</p>
+			</div>
+		</div>
+	</div>
+
+</header>
 
 <div class="container">
-	This is container
+
+	<!-- row -->
 	<div class="row">
+
+		<h4>Мини приложении</h4>
+
 		<div class="col-md-4">
+
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 				Приложение расходов 1.0
@@ -107,12 +129,2388 @@ echo "Расходы за месяц: " . $totalMonth . "\n";
 
 		</div>
 		<div class="col-md-4">
-			col md 2
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+				Калькулятор чеков
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-super-wide">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Калькулятор чеков</li>
+			        	<li class="modalHeaderItem">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+
+// 10 Создайте массив $products.
+//Внутри него должно быть два элемента. Каждый элемент — это ассоциативный массив с ключами "name" (название) и "price" (цена).
+
+
+//print_r($products);
+//echo "Название продукта: " . $products[0]["name"] ."". "Цена продукта: " . $products[0]["price"] . "\n";
+//echo "Название продукта: " . $products[1]["name"] ."". "Цена продукта: " . $products[1]["price"] . "\n";
+//echo "Название продукта: " . $products[2]["name"] ."". "Цена продукта: " . $products[2]["price"] . "\n";
+//echo "Название продукта: " . $products[3]["name"] ."". "Цена продукта: " . $products[3]["price"] . "\n";
+
+
+// 11 Условие: Используйте ваш массив $products из предыдущего задания. 
+//Напишите цикл foreach, который переберет все товары и для каждого выведет строку: "Товар: [название], Цена: [цена]"
+
+// 12 Задание: Вставьте условие if внутрь цикла, чтобы echo срабатывал только для товаров дороже 300 000.
+
+// 13 Давайте усложним фильтр. Представьте, что покупатель ищет товар в определенном диапазоне цен: не слишком дешевый, но и не слишком дорогой.
+//Условие: Используйте тот же массив $products и цикл foreach. Выведите только те товары, цена которых:
+//Больше или равна 10 000.
+//И при этом меньше или равна 20 000.
+
+//
+// 14 До цикла создай переменную $totalSum и задай ей значение 0. Это будет наша "копилка".
+//Внутри цикла foreach прибавляй цену каждого товара ($product["price"]) к этой копилке.
+//В самом конце (уже после того, как цикл закроется фигурной скобкой }) выведи итоговую сумму через echo.
+//Подсказка: Чтобы прибавить что-то к переменной, используй конструкцию: $totalSum = $totalSum + ... или сокращенно $totalSum += ...
+
+// 17 Теперь давай научим программу находить «лидера» продаж — самый дорогой товар в массиве. 💎
+//Для этого нам понадобится еще одна переменная-хранилище, назовем её $maxPrice. 
+//Мы будем сравнивать цену каждого товара с тем, что уже лежит в $maxPrice. 
+//Если текущий товар дороже — мы «записываем» его цену как новый рекорд.
+
+$products = [
+    ["name" => "Телефон", "price" => 5000],
+    ["name" => "Ноутбук", "price" => 9000],
+    ["name" => "Машина", "price" => 11000],
+    ["name" => "Квартира", "price" => 21000],
+    ["name" => "Самокат", "price" => 7000],
+    ["name" => "Самолет", "price" => 60000],
+];
+
+$saleProducts = [
+    ["name" => "Чехол", "price" => 500],
+    ["name" => "Зарядка", "price" => 1500],
+];
+
+$totalSum = 0;
+$middleSum = 0;
+$maxPrice = 0;
+$maxPriceName = "";
+
+foreach ($products as $product) {
+    if($product["price"] >= 10000 && $product["price"] <= 20000) {
+        echo "Название продукта: " . $product["name"] ." ". "Цена продукта: " . $product["price"] . "\n";
+    }
+    
+    if ($product["price"] > $maxPrice) {
+        $maxPrice = $product["price"];
+        $maxPriceName = $product["name"];
+        //$product["price"] = $maxPrice;
+    }
+    
+    $totalSum += $product["price"];
+    //$totalSum = $product["price"] + $totalSum;
+}
+
+$middleSum = $totalSum / count($products);
+
+echo "Общая сумма товаров: " . $totalSum . "\n";
+echo "Средний чек: " . round($middleSum, 2) . "\n"; 
+echo "Самый дорогой товар стоит: " . $maxPrice . "\n";
+echo "Наименование самого дорого товара: " . $maxPriceName . "\n";
+
+
+function calculateTotal($products) {
+    $sum = 0;
+    foreach ($products as $item) {
+        $sum += $item["price"];
+    }
+    return $sum; 
+}
+
+function calculateAverage($products) {
+    // 1. Сначала получаем сумму, вызвав нашу первую функцию
+    $total = calculateTotal($products);
+    
+    $average = $total / count($products);
+    
+    //return $average;
+    return round($average, 2);
+    //echo "Элементов: " . $total . "\n";
+    
+    // 2. Теперь нужно разделить $total на количество элементов в $list
+    // Как вы думаете, какая команда (функция) поможет нам узнать количество элементов? ✍️
+}
+
+
+echo "Общая сумма через функцию: " . calculateTotal($products) . "\n";
+
+echo "Общая сумма через функцию, товары со скидкой: " . calculateTotal($saleProducts) . "\n";
+
+echo "Функция для среднего чека, общий товар " . calculateAverage($products) . "\n";
+
+echo "Функция для среднего чека, товары со скидкой " . calculateAverage($saleProducts) . "\n";
+
+//calculateTotal($saleProducts);
+
+//calculateTotal($saleProducts);
+
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem">Результат выполнения:</li>
+							<li class="modalFooterItem">Название продукта: Машина Цена продукта: 11000</li>
+							<li class="modalFooterItem">Общая сумма товаров: 113000</li>
+							<li class="modalFooterItem">Средний чек: 18833.33</li>
+							<li class="modalFooterItem">Самый дорогой товар стоит: 60000</li>
+							<li class="modalFooterItem">Наименование самого дорого товара: Самолет</li>
+							<li class="modalFooterItem">Общая сумма через функцию: 113000</li>
+							<li class="modalFooterItem">Общая сумма через функцию, товары со скидкой: 2000</li>
+							<li class="modalFooterItem">Функция для среднего чека, общий товар 18833.33</li>
+							<li class="modalFooterItem">Функция для среднего чека, товары со скидкой 1000</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
 		</div>
 		<div class="col-md-4">
-			col md 3
+		
+						<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+				Приложение расходов 2.0
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-super-wide">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Приложение расходов 2.0</li>
+			        	<li class="modalHeaderItem">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$totalMonth = [];
+$totalSumMonth = 0;
+
+$expenses = [
+    ["day" => "1", "title" => "Автобус", "amount" => 110],
+    ["day" => "1", "title" => "Магазин", "amount" => 1800],
+    ["day" => "1", "title" => "Автобус", "amount" => 110],
+    ["day" => "2", "title" => "Автобус", "amount" => 110],
+    ["day" => "2", "title" => "Столовая", "amount" => 500],
+    ["day" => "2", "title" => "Столовая", "amount" => 1500],
+    ["day" => "2", "title" => "Магазин", "amount" => 900],
+    ["day" => "2", "title" => "Автобус", "amount" => 110],
+];
+
+
+foreach ($expenses as $item) {
+    echo "Мои расходы, день: " .$item["day"] . " Название расхода: " .$item["title"] . " Сумма расхода: " .$item["amount"] . "\n";
+    $currentDay = $item["day"];
+    
+    if (!isset($totalMonth[$currentDay])) {
+        $totalMonth[$currentDay] = 0; // Создаем ячейку, если её еще нет
+    }
+    
+    $totalMonth[$currentDay] += $item["amount"];
+    
+}
+
+foreach ($totalMonth as $dayNumber => $sum) {
+    echo "День " . $dayNumber . ": потрачено " . $sum . "\n";
+    $totalSumMonth += $sum;
+}
+
+//print_r($totalMonth);
+
+echo "Общий расход за декабрь: " . $totalSumMonth ;
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem">Результат выполнения:</li>
+							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Автобус Сумма расхода: 110</li>
+							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Магазин Сумма расхода: 1800</li>
+							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Автобус Сумма расхода: 110</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Автобус Сумма расхода: 110</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Столовая Сумма расхода: 500</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Столовая Сумма расхода: 1500</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Магазин Сумма расхода: 900</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Автобус Сумма расхода: 110</li>
+							<li class="modalFooterItem">День 1: потрачено 2020</li>
+							<li class="modalFooterItem">День 2: потрачено 3120</li>
+							<li class="modalFooterItem">Общий расход за декабрь: 5140</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
 		</div>
 	</div>
+	<!-- /row -->
+
+	<!-- row -->
+	<div class="row">
+
+		<!-- col 1 -->
+		<div class="col-md-4">
+
+<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+				Фильтр 1.0
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-super-wide">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Фильтр</li>
+			        	<li class="modalHeaderItem">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+    // before function
+    /*
+    $input = array(" 1500,70 тенге ", "2100.50", "бесплатно", " 300,00 тг "," новый год");
+
+    $search = ["тенге", "тг", " ",];
+
+    $total = 0;
+
+    if(isset($input)) {
+    
+    echo "Переменная есть" . "\n";
+    
+        if(!empty($input) && array_sum($input) > 0) {
+        
+        echo "input не пустой, можно начать цикл" . "\n";
+        
+        foreach ($input as $item) {
+        
+        $item = str_replace($search, "", $item);
+    
+        $item = str_replace(",", ".", $item);
+        
+        if (is_numeric($item)) {
+        
+            echo $item . " — это число, добавляем." . "\n";
+        
+            $total += $item; // Прибавляем само число
+        
+            } else {
+        
+                echo "\n" . $item . "\n" . " — это не число, пропускаем!" . "\n";
+        
+            }
+        
+        }
+        
+        echo "Общая сумма: " . trim($total);
+        
+    } else {
+        
+        echo "input пустой, поэтому цикл не будет работать!" . "\n";
+        
+        }
+    
+    } else {
+    
+    echo "Переменной нет" . "\n";
+    
+    }
+    */
+    
+    
+    $input = array(" 1500,70 тенге ", "2100.50", "бесплатно", " 300,00 тг "," новый год");
+    
+    function calculateTotal($input) {
+        
+        $total = 0;
+        $search = ["тенге", "тг", " ",];
+            
+                if(isset($input)) {
+    
+                    echo "Переменная есть" . "\n";
+                    
+                        if(!empty($input) && array_sum($input) > 0) {
+                        
+                        echo "input не пустой, можно начать цикл" . "\n";
+                        
+                        foreach ($input as $item) {
+                        
+                        $item = str_replace($search, "", $item);
+                    
+                        $item = str_replace(",", ".", $item);
+                        
+                        if (is_numeric($item)) {
+                        
+                            echo $item . " — это число, добавляем." . "\n";
+                        
+                            $total += $item; // Прибавляем само число
+                        
+                            } else {
+                        
+                                echo "\n" . $item . "\n" . " — это не число, пропускаем!" . "\n";
+                        
+                            }
+                        
+                        }
+                        
+                        echo "Общая сумма: " . trim($total) . "\n";
+                        
+                    } else {
+                        
+                        echo "input пустой, поэтому цикл не будет работать!" . "\n";
+                        
+                        }
+                    
+                    } else {
+                    
+                    echo "Переменной нет" . "\n";
+                    
+                    }
+        
+        return $total;
+        
+    }
+    
+    calculateTotal($input);
+    
+    $result = calculateTotal($input);
+
+    echo "ИТОГОВЫЙ РЕЗУЛЬТАТ: " . $result;
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem">Результат выполнения:</li>
+							<li class="modalFooterItem">Переменная есть</li>
+							<li class="modalFooterItem">input не пустой, можно начать цикл</li>
+							<li class="modalFooterItem">1500.70 — это число, добавляем.</li>
+							<li class="modalFooterItem">2100.50 — это число, добавляем.</li>
+
+							<li class="modalFooterItem">бесплатно</li>
+							<li class="modalFooterItem"> — это не число, пропускаем!</li>
+							<li class="modalFooterItem">300.00 — это число, добавляем.</li>
+
+
+							<li class="modalFooterItem">новыйгод</li>
+							<li class="modalFooterItem"> — это не число, пропускаем!</li>
+							<li class="modalFooterItem">Общая сумма: 3901.2</li>
+							<li class="modalFooterItem">Переменная есть</li>
+							<li class="modalFooterItem">input не пустой, можно начать цикл</li>
+							<li class="modalFooterItem">1500.70 — это число, добавляем.</li>
+							<li class="modalFooterItem">2100.50 — это число, добавляем.</li>
+
+							<li class="modalFooterItem">бесплатно</li>
+							<li class="modalFooterItem"> — это не число, пропускаем!</li>
+							<li class="modalFooterItem">300.00 — это число, добавляем.</li>
+
+							<li class="modalFooterItem">новыйгод</li>
+							<li class="modalFooterItem"> — это не число, пропускаем!</li>
+							<li class="modalFooterItem">Общая сумма: 3901.2</li>
+							<li class="modalFooterItem">ИТОГОВЫЙ РЕЗУЛЬТАТ: 3901.2</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-4">
+		
+
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-4">
+		
+
+
+		</div>
+		<!-- /col 3 -->
+
+	</div>
+	<!-- /row -->
+
+
+	<!-- row -->
+	<div class="row">
+
+		<p class="chapterTitel">Глава 3: Условия (if/else)</p>
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3-1">
+				1 - Проверь число на четность: если четное — выведи "Да", иначе "Нет".
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal3-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">1 - Проверь число на четность: если четное — выведи "Да", иначе "Нет".</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$vara = 10;
+$varb = 2;
+
+if ($vara % $varb === 0) {
+    echo "Число четное";
+} else {
+    echo "Число не четное";
+}    
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Число четное</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3-2">
+				2 - Создай переменную $age. Если она меньше 18 — выведи "Доступ запрещен", иначе — "Добро пожаловать".
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal3-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">2 - Создай переменную $age. Если она меньше 18 — выведи "Доступ запрещен", иначе — "Добро пожаловать".</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$age = 19;
+
+if($age <= 18) {
+    echo "Доступ запрещен";
+} else {
+    echo "Добро пожаловать";
+}   
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Число четное</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3-3">
+				3 - Сравни два числа и выведи то, которое больше
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal3-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">3 - Сравни два числа и выведи то, которое больше</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$numberf = 69;
+$numbers = 54;
+
+if($numberf > $numbers) {
+    echo "Число первой переменной " . $numberf . "\n";
+} elseif ($numbers > $numberf) {
+    echo "Число второй переменной " . $numbers . "\n";
+} else {
+    echo "Обе переменные равны";
+}  
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Число четное</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 3 -->
+
+		<!-- col 4 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3-4">
+				4 - Проверь строку на длину: если в ней больше 10 символов — выведи "Длинная", иначе "Короткая"
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal3-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">4 - Проверь строку на длину: если в ней больше 10 символов — выведи "Длинная", иначе "Короткая".</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$lineOne = "Врайт Кинг";
+
+if(mb_strlen($lineOne) >= 10) {
+    echo "Длинная ";
+} else {
+    echo "Короткая ";
+}
+
+echo mb_strlen($lineOne); 
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Число четное</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 4 -->
+
+	</div>
+	<!-- /row -->
+
+		<!-- row -->
+	<div class="row">
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3-5">
+				5 - Напиши проверку: если число делится и на 3, и на 5 одновременно — выведи "Bingo!
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal3-5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">5 - Напиши проверку: если число делится и на 3, и на 5 одновременно — выведи "Bingo!</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$selectNumber = 15;
+
+if($selectNumber % 3 === 0 && $selectNumber % 5 === 0) {
+    echo "Bingo!";
+} else {
+    echo "Напиши число которое делится на 3 и 5";
+}
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Bingo!</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+	</div>
+	<!-- /row -->
+
+	<!-- row -->
+	<div class="row">
+
+		<p class="chapterTitel">Глава 4: Циклы (foreach)</p>
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4-1">
+				1 - Выведи все элементы массива фруктов простым списком
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal4-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">1 - Проверь число на четность: если четное — выведи "Да", иначе "Нет".</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$fruits = array ("Яблоко","Апельсин","Груша","Киви","Ананс","Манго");
+
+foreach ($fruits as $item) {
+    echo $item;
+}   
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">ЯблокоАпельсинГрушаКивиАнансМанго</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4-2">
+				2 - Создай массив чисел и выведи только те, которые больше 10
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal4-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">2 - Создай массив чисел и выведи только те, которые больше 10</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$numberArr = array ("5","11","69","54","77","9","8");
+
+foreach ($numberArr as $itemNumber) {
+    if($itemNumber > 10 ) {
+        echo $itemNumber;
+    }
+}
+
+//$numberArr = array ("5","11","69","54","77","9","8");
+
+/*
+foreach ($numberArr as $itemNumber) {
+    if($itemNumber > 10 ) {
+        echo $itemNumber;
+    }
+}
+*/
+
+/*
+// Как foreach, но вручную проверяем
+for($i = 0; $i < count($numberArr); $i++) {
+    if ( $numberArr[$i] > 10 ) { 
+        echo $numberArr[$i] . "\n";
+    }
+}
+*/
+
+
+
+//print_r(count($numberArr));
+/*
+//В цикле for нам нужно будет обращаться к элементам массива по их номеру (индексу), используя переменную-счетчик (обычно $i).
+
+//Логика цикла for:
+//Начало: $i = 0 (так как первый элемент массива всегда под индексом 0).
+
+Условие: Цикл должен идти, пока $i меньше, чем общее количество элементов в массиве.
+
+Действие внутри: Мы берем элемент $numberArr[$i] и проверяем его через if.
+
+Попробуйте переписать ваш код. Как будет выглядеть условие в цикле for, если для подсчета элементов массива мы используем count($numberArr)?
+*/
+
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">11695477</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4-3">
+				3 - Подсчитай сумму всех чисел в массиве, используя цикл foreach (без array_sum)
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal4-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">3 - Подсчитай сумму всех чисел в массиве, используя цикл foreach (без array_sum)</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$numbersArray = array (101,169,"154","189","239","303");
+
+$sum = 0;
+
+foreach ($numbersArray as $itemsNumber) {
+    $sum += $itemsNumber;
+}
+
+echo $sum;
+
+
+
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">1155</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 3 -->
+
+		<!-- col 4 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4-4">
+				4 - Выведи элементы массива, добавив к каждому порядковый номер (1. Хлеб, 2. Молоко...)
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal4-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">4 - Выведи элементы массива, добавив к каждому порядковый номер (1. Хлеб, 2. Молоко...)</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$year = array ("Зима","Весна","Лето","Осень",);
+$number = 0;
+
+foreach ($year as $month) {
+    $number++;
+    echo "$number." . " $month, ";   
+}    
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">1. Зима, 2. Весна, 3. Лето, 4. Осень, </li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 4 -->
+
+	</div>
+	<!-- /row -->
+
+	<!-- row -->
+	<div class="row">
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4-5">
+				5 - Создай массив имен. Если имя "Админ", выведи его жирным шрифтом 
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal4-5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">1 - Проверь число на четность: если четное — выведи "Да", иначе "Нет".</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$names = array ("user","blogger","admin","journalist");
+$nameAdmin = "";
+$nameOther = "";
+
+foreach ($names as $name) {
+    if($name === "admin") {
+        $nameAdmin .= $name . "\n";
+    } else {
+        $nameOther .= $name . "\n";
+    }
+}
+
+echo "Только админ: " . $nameAdmin;
+echo "Спикок всех пользователей: " . $nameOther;   
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Только админ: admin</li>
+							<li class="modalFooterItem">Спикок всех пользователей: user blogger
+ journalist</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+	</div>
+	<!-- /row -->
+
+		<!-- row -->
+	<div class="row">
+
+		<p class="chapterTitel">Глава 5: Функции (Основы)</p>
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5-1">
+				1 - Напиши функцию, которая принимает имя и возвращает "Привет, [имя]
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal5-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">1 - Проверь число на четность: если четное — выведи "Да", иначе "Нет".</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+function sayHello($name) {
+    return $name;
+}
+
+echo sayHello("Erasyl") . "\n";  
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Erasyl</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5-2">
+				2 - Создай функцию square($n), которая возвращает квадрат числа
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal5-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">2 - Создай функцию square($n), которая возвращает квадрат числа</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+function square($n) {
+    //$c = $n * $n;
+    return $n * $n;
+}
+
+echo square(4) . "\n"; 
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">16</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5-3">
+				3 - Напиши функцию, которая принимает два числа и возвращает их среднее арифметическое
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal5-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">3 - Напиши функцию, которая принимает два числа и возвращает их среднее арифметическое</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+function inputTwo($a, $b) {
+    $c = ($a + $b) / 2;
+    return $c;
+}
+
+echo inputTwo(3,1) . "\n"; 
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">2</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 3 -->
+
+		<!-- col 4 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5-4">
+				4 - Создай функцию, которая переводит строку в верхний регистр (strtoupper)
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal5-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">4 - Создай функцию, которая переводит строку в верхний регистр (strtoupper)</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+function bigMyStr($word) {
+    return strtoupper($word);
+}
+
+echo bigMyStr("astanahab") . "\n";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">ASTANAHAB</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 4 -->
+
+	</div>
+	<!-- /row -->
+
+		<!-- row -->
+	<div class="row">
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5-5">
+				5 - Напиши функцию isPositive($n), которая возвращает true, если число положительное
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal5-5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">4 - Создай функцию, которая переводит строку в верхний регистр (strtoupper)</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+function positive($n) {
+    if($n > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+echo positive(28);
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">1</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5-6">
+				Функция и аргументы
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal5-6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Функция и аргументы</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+function greet($name, $timeOfDay = "Привет") {
+    return "Добрый " . $timeOfDay . ", " . $name . "!";
+}
+
+echo greet ("Erasyl","вечер") . "\n";
+echo greet ("Erasyl");
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Добрый вечер, Erasyl!</li>
+							<li class="modalFooterItem">Добрый Привет, Erasyl!</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5-7">
+				Function + foreach + array
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal5-7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Function + foreach + array</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+function sumArray($numbers) {
+    $total = 0;
+    foreach($numbers as $item) {
+        $total += $item;
+    }
+    return $total;
+}
+
+echo sumArray([10, 20, 30]);
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">60</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 3 -->
+
+	</div>
+	<!-- /row -->
+
+	<!-- row -->
+	<div class="row">
+
+		<p class="chapterTitel">Глава 6: Работа со строками (trim, str_replace, explode)</p>
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6-1">
+				1 - Напиши функцию, которая принимает имя и возвращает "Привет, [имя]
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal6-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">1 - Напиши функцию, которая принимает имя и возвращает "Привет, [имя]</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+function sayHello($name) {
+    return $name;
+}
+
+echo sayHello("Erasyl") . "\n";  
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Erasyl</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6-2">
+				Задание 2 - Замени во фразе "Я люблю JS" буквы "JS" на "PHP"
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal6-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 2 - Замени во фразе "Я люблю JS" буквы "JS" на "PHP"</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$str2 = "Я люблю JS";
+$newStr = str_replace("JS","PHP",$str2);
+echo($newStr) . "\n"; 
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Я люблю PHP</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6-3">
+				Задание 3 - Разрежь строку "яблоко,банан,груша" в массив по запятой
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal6-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 3 - Разрежь строку "яблоко,банан,груша" в массив по запятой</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$fruits = "яблоко,банан,груша";
+$newFruites = explode(",",$fruits);
+print_r($newFruites) . "\n";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Array</li>
+							<li class="modalFooterItem">(</li>
+							<li class="modalFooterItem">[0] => яблоко</li>
+							<li class="modalFooterItem">[1] => банан</li>
+							<li class="modalFooterItem">[2] => груша</li>
+							<li class="modalFooterItem">)</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 3 -->
+
+		<!-- col 4 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6-4">
+				Задание 4 - Удали все дефисы из номера телефона "8-777-123-45-67"
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal6-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 4 - Удали все дефисы из номера телефона "8-777-123-45-67"</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$number = "8-777-123-45-67";
+echo(str_replace("-"," ",$number)) . "\n";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">8 777 123 45 67</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 4 -->
+
+	</div>
+	<!-- /row -->
+
+	<!-- row -->
+	<div class="row">
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6-6">
+				Задание 5 - Посчитай количество слов в предложении, сначала разрезав его по пробелу в массив
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal6-6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 5 - Посчитай количество слов в предложении, сначала разрезав его по пробелу в массив</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$word = "Программирование это очень интересное занятие";
+$newWord = explode(" ",$word);
+print_r(count($newWord)) . "\n";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">8 777 123 45 67</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6-7">
+				Функция-очиститель имен
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal6-7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Функция-очиститель имен Представь, что пользователи вводят свои имена как попало: с пробелами, маленькими буквами или лишними символами. Нам нужна функция, которая приводит имя в порядок.</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$name = "";
+
+function cleanName($name) {
+    
+    $name = trim($name);
+    $name = strtoupper($name);
+    return $name;
+    
+}
+
+echo cleanName(" abai");
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">ABAI</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+	</div>
+	<!-- /row -->
+
+
+	<!-- row -->
+	<div class="row">
+
+		<p class="chapterTitel">Глава 7: Фильтрация данных (is_numeric, empty)</p>
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7-1">
+				Задание 1 - Проверь переменную: если она пустая — выведи "Пусто", если нет — её значение
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal7-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 1 - Проверь переменную: если она пустая — выведи "Пусто", если нет — её значение</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$variableF = "Бобро пожаловать";
+if (!empty($variableF)) {
+    echo($variableF) . "\n";
+} else {
+    echo "Пусто" . "\n";
+} 
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Бобро пожаловать</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7-2">
+				Задание 2 - Дан массив [10, "текст", 20]. Выведи только те элементы, которые являются числами
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal7-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 2 - Дан массив [10, "текст", 20]. Выведи только те элементы, которые являются числами</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$numberAr = array(10, "текст", 20);
+
+foreach ($numberAr as $item) {
+    if(is_numeric($item)) {
+        echo($item . " ") . "\n";
+    } 
+} 
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">10</li>
+							<li class="modalFooterItem">20</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7-3">
+				Задание 3 - Напиши функцию, которая принимает массив и возвращает новый массив только с числами
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal7-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 3 - Напиши функцию, которая принимает массив и возвращает новый массив только с числами</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$varArray = [10, "ошибка", 20, "неизвестно", 30];
+
+function onlyNumbers($varArray) {
+    $result = [];
+    
+    foreach ($varArray as $item) {
+        if(is_numeric($item)) {
+            $result[] = $item;
+        }
+    }
+    
+    return $result;
+}
+
+
+print_r(onlyNumbers($varArray)) . "\n"; 
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Array</li>
+							<li class="modalFooterItem">(</li>
+							<li class="modalFooterItem">[0] => 10</li>
+							<li class="modalFooterItem">[1] => 20</li>
+							<li class="modalFooterItem">[2] => 30</li>
+							<li class="modalFooterItem">)</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 3 -->
+
+		<!-- col 4 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7-4">
+				Задание 4 - Проверь переменную через isset. Если её нет — создай её со значением 0
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal7-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 4 - Проверь переменную через isset. Если её нет — создай её со значением 0</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$score = 0;
+
+if(isset($score)) {
+    echo "Переменная есть" . "\n";
+} else {
+    echo "Переменной нет" . "\n";
+}
+
+/*
+$score = 10; // Попробуй удалить или закомментировать эту строку
+
+if (!isset($score)) {
+    echo "Переменной НЕ СУЩЕСТВУЕТ, создаю её... \n";
+    $score = 0;
+} else {
+    echo "Переменная уже СУЩЕСТВУЕТ, её значение: " . $score . "\n";
+}
+*/
+
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Переменная есть</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 4 -->
+
+	</div>
+	<!-- /row -->
+
+		<!-- row -->
+	<div class="row">
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7-5">
+				Задание 5 - Проверь, является ли строка числом после удаления из неё знака $
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal7-5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 5 - Проверь, является ли строка числом после удаления из неё знака $</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$price = "$500";
+
+$newPrice = str_replace("$","",$price);
+
+if(is_numeric($newPrice)) {
+    echo "Цена принята " . $newPrice . "\n";
+}
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Цена принята 500</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7-6">
+				Проверь переменную $userScore через isset. Если её нет — создай её со значением 0. Если она есть — прибавь к ней 10
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal7-6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Проверь переменную $userScore через isset. Если её нет — создай её со значением 0. Если она есть — прибавь к ней 10</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$userScore = 0;
+
+if(isset($userScore)) {
+    $userScore += 10;
+    echo($userScore);
+} else {
+    echo "Переменной нет, не создана ";
+    $userScore = 0;
+    echo($userScore) . " Теперь создана";
+}
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">10</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+	</div>
+	<!-- /row -->
+
+		<!-- row -->
+	<div class="row">
+
+		<p class="chapterTitel">Глава 8: Продвинутые функции и логика</p>
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal8-1">
+				Задание 1 - Создай функцию, которая принимает массив цен и возвращает их сумму с учетом налога 10%
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal8-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 1 - Создай функцию, которая принимает массив цен и возвращает их сумму с учетом налога 10%</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$price = array (100,200,500,750);
+
+function priceToArray($price) {
+
+    $total = 0;
+    
+    foreach ($price as $item) {
+        $total += $item;
+    }
+    
+    $finalPrice;
+    
+    $finalPrice = $total * 1.1;
+    
+    return $finalPrice;
+    
+}
+
+echo priceToArray($price) . "\n";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">1705</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal8-2">
+				Задание 2 - Напиши функцию, которая принимает массив строк и возвращает самую длинную строку
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal8-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-super-wide">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 2 - Напиши функцию, которая принимает массив строк и возвращает самую длинную строку</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$words = array("super-programming","banan","apple","car","superDuper-programming","pepsi","USA","computer");
+
+function longWords($words) {
+    
+    $longest = "";
+    
+    foreach ($words as $itemWord) {
+        echo " Массив " . $itemWord . " Длина " . strlen($itemWord) . "\n";
+    
+        if(strlen($itemWord) > strlen($longest)) {
+            $longest = $itemWord;
+            echo "Самый длинный массив " . $itemWord . " и размер длины равен: " . strlen($itemWord) . "\n";
+        }
+        
+    }
+    
+    return "Самая длинная строка " . $longest . "\n";
+    
+}
+
+echo longWords($words);
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Массив super-programming Длина 17</li>
+							<li class="modalFooterItem">Самый длинный массив super-programming и размер длины равен: 17</li>
+							<li class="modalFooterItem">Массив banan Длина 5</li>
+							<li class="modalFooterItem">Массив apple Длина 5</li>
+							<li class="modalFooterItem">Массив car Длина 3</li>
+							<li class="modalFooterItem">Массив superDuper-programming Длина 22</li>
+							<li class="modalFooterItem">Самый длинный массив superDuper-programming и размер длины равен: 22</li>
+							<li class="modalFooterItem">Массив pepsi Длина 5</li>
+							<li class="modalFooterItem">Массив USA Длина 3</li>
+							<li class="modalFooterItem">Массив computer Длина 8</li>
+							<li class="modalFooterItem">Самая длинная строка superDuper-programming</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal8-3">
+				Задание 3 - Создай функцию-валидатор: она должна возвращать true, если в строке есть и точка, и запятая
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal8-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 3 - Создай функцию-валидатор: она должна возвращать true, если в строке есть и точка, и запятая</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$varWords = "колбаса, сыр.";
+
+function Validatin($varWords) { 
+    
+    /*
+    foreach ($varWords as $wordsFor) {
+        if (str_contains($wordsFor,",") && str_contains($wordsFor,".")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    */
+    
+    if (str_contains($varWords,",") && str_contains($varWords,".")) {
+        return true;
+    } else {
+        return false;
+    }
+    
+    return $varWords;
+    
+}
+
+echo Validatin($varWords) . "\n";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">1</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 3 -->
+
+		<!-- col 4 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal8-4">
+				Задание 4 - Напиши функцию, которая «чистит» массив от пустых элементов (используй empty)
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal8-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 4 - Напиши функцию, которая «чистит» массив от пустых элементов (используй empty)</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$justWords = [10, "", 0, "Apple", false, "Orange"];
+
+function cleanArray($justWords) {
+    
+    $result = [];
+    
+    foreach ($justWords as $justItem) {
+        
+        if(!empty($justItem)) {
+            $result[] = $justItem;
+        }
+        
+    }
+    
+    return $result;
+    
+}
+
+print_r(cleanArray($justWords)) . "\n";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Array</li>
+							<li class="modalFooterItem">(</li>
+							<li class="modalFooterItem">[0] => 10</li>
+							<li class="modalFooterItem">[1] => Apple</li>
+							<li class="modalFooterItem">[2] => Orange</li>
+							<li class="modalFooterItem">)</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 4 -->
+
+	</div>
+	<!-- /row -->
+
+	<!-- row -->
+	<div class="row">
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal8-5">
+				Задание 5 - Сделай функцию formatMoney($value), которая заменяет запятую на точку, удаляет пробелы и добавляет в конце " тг."
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal8-5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Задание 5 - Сделай функцию formatMoney($value), которая заменяет запятую на точку, удаляет пробелы и добавляет в конце " тг."</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$oldPrice = "1 200,50";
+
+function formatMoney($oldPrice) {
+    
+    $newPrice = str_replace(",",".",$oldPrice);
+    
+    $newPrice = str_replace(" ","",$newPrice);
+    
+    $totalPrice = $newPrice . " тг. ";
+    
+    return $totalPrice;
+    
+}
+
+echo formatMoney($oldPrice);
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">1200.50 тг. </li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+	</div>
+	<!-- /row -->
+
+
 </div>
 
 <script src="js/popper.min.js"></script>
