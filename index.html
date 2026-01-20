@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задачи по php</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/default.min.css">
+	<link rel="stylesheet" type="text/css" href="css/atom-one-dark.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>	
+
+<h4>На данной странице, собраны все задачи которые я решил используя язык программирование PHP </h4>
+
+<div class="container">
+	This is container
+	<div class="row">
+		<div class="col-md-4">
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+				Приложение расходов 1.0
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-super-wide">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">Приложение расходов 1.0</li>
+			        	<li class="modalHeaderItem">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+//$totalDay1 = 0;
+//$totalDay2 = 0;
+$totalMonth = 0;
+
+$expenses = [
+    ["day" => "1", "title" => "Автобус", "amount" => 110],
+    ["day" => "1", "title" => "Магазин", "amount" => 1800],
+    ["day" => "1", "title" => "Автобус", "amount" => 110],
+    ["day" => "2", "title" => "Автобус", "amount" => 110],
+    ["day" => "2", "title" => "Столовая", "amount" => 500],
+    ["day" => "2", "title" => "Столовая", "amount" => 1500],
+    ["day" => "2", "title" => "Магазин", "amount" => 900],
+    ["day" => "2", "title" => "Автобус", "amount" => 110],
+];
+
+//print_r($expenses);
+
+//echo $expenses["day"];
+
+foreach ($expenses as $item) {
+    echo "Мои расходы, день: " .$item["day"] . " Название расхода: " .$item["title"] . " Сумма расхода: " .$item["amount"] . "\n";
+    
+    //if ($item["day"] == "1") {
+        //$totalDay1 += $item["amount"];
+        //echo "Расходы за 1 день: " . $totalDay1 . "\n";
+    //}
+    
+    //if ($item["day"] == "2") {
+        //$totalDay2 += $item["amount"];
+        //echo "Расходы за 2 день: " . $totalDay2 . "\n";
+    //}
+    
+    if($item["day"] == $totalMonth) {
+        $totalMonth =+ $item["amount"];
+    } 
+    
+}
+
+//echo "Расходы за 1 день: " . $totalDay1 . "\n";
+//echo "Расходы за 2 день: " . $totalDay2 . "\n";
+echo "Расходы за месяц: " . $totalMonth . "\n";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem">Результат выполнения:</li>
+							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Автобус Сумма расхода: 110</li>
+							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Магазин Сумма расхода: 1800</li>
+							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Автобус Сумма расхода: 110</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Автобус Сумма расхода: 110</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Столовая Сумма расхода: 500</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Столовая Сумма расхода: 1500</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Магазин Сумма расхода: 900</li>
+							<li class="modalFooterItem">Мои расходы, день: 2 Название расхода: Автобус Сумма расхода: 110</li>
+							<li class="modalFooterItem">Расходы за месяц: 0</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<div class="col-md-4">
+			col md 2
+		</div>
+		<div class="col-md-4">
+			col md 3
+		</div>
+	</div>
+</div>
+
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/highlight.min.js"></script>
+<script src="js/php.min.js"></script>
+
+<script>
+    // 1. Обычная инициализация при загрузке страницы
+    hljs.highlightAll();
+
+    // 2. Специальный "будильник" для модальных окон Bootstrap
+    var myModal = document.getElementById('exampleModal');
+    myModal.addEventListener('shown.bs.modal', function () {
+        // Находим все блоки кода внутри открытого окна и красим их
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+    });
+</script>
+
+</body>
+</html>
