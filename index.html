@@ -5,6 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Задачи по php</title>
 
+	<!-- Favicon  -->
+	<link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/default.min.css">
 	<link rel="stylesheet" type="text/css" href="css/atom-one-dark.min.css">
@@ -54,7 +59,7 @@
 			      <div class="modal-header">
 			        <ul class="modalHeaderList">
 			        	<li class="modalHeaderItem">Приложение расходов 1.0</li>
-			        	<li class="modalHeaderItem">Код программы:</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
 			        </ul>
 			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      </div>
@@ -110,7 +115,7 @@ echo "Расходы за месяц: " . $totalMonth . "\n";
 			      </div>
 			      <div class="modal-footer">
 						<ul class="modalFooterList">
-							<li class="modalFooterItem">Результат выполнения:</li>
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
 							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Автобус Сумма расхода: 110</li>
 							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Магазин Сумма расхода: 1800</li>
 							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Автобус Сумма расхода: 110</li>
@@ -143,7 +148,7 @@ echo "Расходы за месяц: " . $totalMonth . "\n";
 			      <div class="modal-header">
 			        <ul class="modalHeaderList">
 			        	<li class="modalHeaderItem">Калькулятор чеков</li>
-			        	<li class="modalHeaderItem">Код программы:</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
 			        </ul>
 			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      </div>
@@ -268,7 +273,7 @@ echo "Функция для среднего чека, товары со ски�
 			      </div>
 			      <div class="modal-footer">
 						<ul class="modalFooterList">
-							<li class="modalFooterItem">Результат выполнения:</li>
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
 							<li class="modalFooterItem">Название продукта: Машина Цена продукта: 11000</li>
 							<li class="modalFooterItem">Общая сумма товаров: 113000</li>
 							<li class="modalFooterItem">Средний чек: 18833.33</li>
@@ -301,7 +306,7 @@ echo "Функция для среднего чека, товары со ски�
 			      <div class="modal-header">
 			        <ul class="modalHeaderList">
 			        	<li class="modalHeaderItem">Приложение расходов 2.0</li>
-			        	<li class="modalHeaderItem">Код программы:</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
 			        </ul>
 			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      </div>
@@ -351,7 +356,7 @@ echo "Общий расход за декабрь: " . $totalSumMonth ;
 			      </div>
 			      <div class="modal-footer">
 						<ul class="modalFooterList">
-							<li class="modalFooterItem">Результат выполнения:</li>
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
 							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Автобус Сумма расхода: 110</li>
 							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Магазин Сумма расхода: 1800</li>
 							<li class="modalFooterItem">Мои расходы, день: 1 Название расхода: Автобус Сумма расхода: 110</li>
@@ -393,7 +398,7 @@ echo "Общий расход за декабрь: " . $totalSumMonth ;
 			      <div class="modal-header">
 			        <ul class="modalHeaderList">
 			        	<li class="modalHeaderItem">Фильтр</li>
-			        	<li class="modalHeaderItem">Код программы:</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
 			        </ul>
 			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      </div>
@@ -518,7 +523,7 @@ echo "Общий расход за декабрь: " . $totalSumMonth ;
 			      </div>
 			      <div class="modal-footer">
 						<ul class="modalFooterList">
-							<li class="modalFooterItem">Результат выполнения:</li>
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
 							<li class="modalFooterItem">Переменная есть</li>
 							<li class="modalFooterItem">input не пустой, можно начать цикл</li>
 							<li class="modalFooterItem">1500.70 — это число, добавляем.</li>
@@ -574,11 +579,548 @@ echo "Общий расход за декабрь: " . $totalSumMonth ;
 	</div>
 	<!-- /row -->
 
+	<!-- container block chapter -->
+	<div class="container">
+
+		<!-- row -->
+		<div class="row">
+
+			<p class="titleLeveChap">Уровень 1</p>
+
+			<div class="col-md-12 chapterBlock">
+
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#chapter1Level1">Глава 1: Переменные и простые вычисления</a></p>
+				</div>
+
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#chapter2Level1">Глава 2: Массивы (Основы)</a></p>
+				</div>
+
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#chapter3Level1">Глава 3: Условия (if/else)</a></p>
+				</div>
+
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#chapter4Level1">Глава 4: Циклы (foreach)</a></p>
+				</div>
+
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#chapter5Level1">Глава 5: Функции (Основы)</a></p>
+				</div>
+
+			</div>
+
+			<div class="col-md-12 chapterBlock">
+
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#chapter6Level1">Глава 6: Работа со строками (trim, str_replace, explode)</a></p>
+				</div>
+
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#chapter7Level1">Глава 7: Фильтрация данных (is_numeric, empty)</a></p>
+				</div>
+				
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#chapter8Level1">Глава 8: Продвинутые функции и логика</a></p>
+				</div>
+
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#">Глава 9: Продвинутые функции и логика</a></p>
+				</div>
+
+				<div class="cardChapter">
+					<p class="cardChapterName"><a href="#">Глава 10: Продвинутые функции и логика</a></p>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- /row -->
+
+	</div>
+	<!-- /container block chapter -->
 
 	<!-- row -->
 	<div class="row">
 
-		<p class="chapterTitel">Глава 3: Условия (if/else)</p>
+		<p class="chapterTitel" id="chapter1Level1">Глава 1: Переменные и простые вычисления</p>
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1-1">
+				1 - Создай переменные $price и $count, выведи их общую стоимость
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal1-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">1 - Проверь число на четность: если четное — выведи "Да", иначе "Нет".</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$price = 5;
+$count = 10;
+
+$total = $price + $count;
+
+echo $total . "\n";    
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">15</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1-2">
+				2 - Создай переменную $name и выведи фразу "Привет, [имя]!" через конкатенацию (точку)
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal1-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">2 - Создай переменную $name и выведи фразу "Привет, [имя]!" через конкатенацию (точку)</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$name = "Erasyl";
+
+echo "Привет, " .$name . "\n";  
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Привет, Erasyl</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->	
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1-3">
+				3 - Поменяй значения двух переменных $a и $b местами, используя третью переменную
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal1-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">3 - Поменяй значения двух переменных $a и $b местами, используя третью переменную</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$a = "Яблоко";
+$b = "Банан";
+
+$c = $a;
+$a = $b;
+
+$b = $c;
+
+echo $a . "\n";
+echo $b . "\n";
+echo $c . "\n"; 
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Банан</li>
+							<li class="modalFooterItem">Яблоко</li>
+							<li class="modalFooterItem">Яблоко</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->	
+
+		</div>
+		<!-- /col 3 -->
+
+		<!-- col 4 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1-4">
+				4 - Вычисли остаток от деления 17 на 5 и выведи результат
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal1-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">4 - Вычисли остаток от деления 17 на 5 и выведи результат</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$result = 17 % 5;
+echo $result . "\n";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">2</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->	
+
+		</div>
+		<!-- /col 4 -->
+
+	</div>
+	<!-- /row -->
+
+	<!-- row -->
+	<div class="row">
+
+		<!-- col 5 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1-5">
+				5 - Напиши скрипт, который переводит температуру из Цельсия в Фаренгейт ($F = C \cdot 1.8 + 32$)
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal1-5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">5 - Напиши скрипт, который переводит температуру из Цельсия в Фаренгейт ($F = C \cdot 1.8 + 32$)</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$celsius = 25;
+$fahrenheit;
+$varieblea = 1.8;
+$variebleb = 32;
+
+$fahrenheit = $celsius * $varieblea + $variebleb;
+
+echo  "$celsius °C — это $fahrenheit °F";
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">25 °C — это 77 °F</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->	
+
+		</div>
+		<!-- /col 5 -->
+
+	</div>
+	<!-- /row -->
+
+
+	<!-- row -->
+	<div class="row">
+
+		<p class="chapterTitel" id="chapter2Level1">Глава 2: Массивы (Основы)</p>
+
+		<!-- col 1 -->
+		<div class="col-md-3">
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2-1">
+				1 - Создай массив из 5 любимых фруктов и выведи третий по счету
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal2-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">1 - Создай массив из 5 любимых фруктов и выведи третий по счету</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$fruits = array ("Яблоко","Апельсин","Груша","Киви","Ананс","Манго");
+
+unset($fruits[1]);
+//print_r($fruits);
+print_r(count($fruits));
+print_r($fruits[2]);   
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">5Груша</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+			
+		</div>
+		<!-- /col 1 -->
+
+		<!-- col 2 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2-2">
+				2 - Добавь в конец существующего массива новый элемент
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal2-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">2 - Добавь в конец существующего массива новый элемент</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$fruits = array ("Яблоко","Апельсин","Груша","Киви","Ананс","Манго");
+
+unset($fruits[1]);
+//print_r($fruits);
+print_r(count($fruits));
+print_r($fruits[2]);
+
+// 3 - Удали второй элемент из массива и выведи количество оставшихся элементов через count().   
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">5Груша</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 2 -->
+
+		<!-- col 3 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2-3">
+				3 - Создай массив с числами и выведи сумму первого и последнего элемента
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal2-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">3 - Создай массив с числами и выведи сумму первого и последнего элемента</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$numbers = array ("15","78","1945","69");
+print_r($numbers);
+echo print_r($numbers[0]) + print_r($numbers[3]);   
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Array</li>
+							<li class="modalFooterItem">(</li>
+							<li class="modalFooterItem">[0] => 15</li>
+							<li class="modalFooterItem">[1] => 78</li>
+							<li class="modalFooterItem">[2] => 1945</li>
+							<li class="modalFooterItem">[3] => 69</li>
+							<li class="modalFooterItem">)</li>
+						</ul>
+
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Код: echo print_r($numbers[0]) + print_r($numbers[3]);</li>
+							<li class="modalFooterItem">15692</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 3 -->
+
+		<!-- col 4 -->
+		<div class="col-md-3">
+		
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2-4">
+				4 - Перезапиши значение по индексу [1] на любое другое слово
+			</button>
+			<!-- /Button trigger modal  -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal2-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <ul class="modalHeaderList">
+			        	<li class="modalHeaderItem">4 - Перезапиши значение по индексу [1] на любое другое слово</li>
+			        	<li class="modalHeaderItem txtB">Код программы:</li>
+			        </ul>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      
+			      	<pre>
+			      		<code class="language-php">
+&lt;?php
+$numbers[1] = "дерево";
+print_r($numbers);  
+?&gt;
+						</code>
+					</pre>
+			      </div>
+			      <div class="modal-footer">
+						<ul class="modalFooterList">
+							<li class="modalFooterItem txtB">Результат выполнения:</li>
+							<li class="modalFooterItem">Array</li>
+							<li class="modalFooterItem">(</li>
+							<li class="modalFooterItem">[1] => дерево</li>
+							<li class="modalFooterItem">)</li>
+						</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- /Modal -->
+
+		</div>
+		<!-- /col 4 -->
+
+	</div>
+	<!-- /row -->
+
+	<!-- row -->
+	<div class="row">
+
+		<p class="chapterTitel" id="chapter3Level1">Глава 3: Условия (if/else)</p>
 
 		<!-- col 1 -->
 		<div class="col-md-3">
@@ -848,7 +1390,7 @@ if($selectNumber % 3 === 0 && $selectNumber % 5 === 0) {
 	<!-- row -->
 	<div class="row">
 
-		<p class="chapterTitel">Глава 4: Циклы (foreach)</p>
+		<p class="chapterTitel" id="chapter4Level1">Глава 4: Циклы (foreach)</p>
 
 		<!-- col 1 -->
 		<div class="col-md-3">
@@ -1160,7 +1702,7 @@ echo "Спикок всех пользователей: " . $nameOther;
 		<!-- row -->
 	<div class="row">
 
-		<p class="chapterTitel">Глава 5: Функции (Основы)</p>
+		<p class="chapterTitel" id="chapter5Level1">Глава 5: Функции (Основы)</p>
 
 		<!-- col 1 -->
 		<div class="col-md-3">
@@ -1522,7 +2064,7 @@ echo sumArray([10, 20, 30]);
 	<!-- row -->
 	<div class="row">
 
-		<p class="chapterTitel">Глава 6: Работа со строками (trim, str_replace, explode)</p>
+		<p class="chapterTitel" id="chapter6Level1">Глава 6: Работа со строками (trim, str_replace, explode)</p>
 
 		<!-- col 1 -->
 		<div class="col-md-3">
@@ -1827,7 +2369,7 @@ echo cleanName(" abai");
 	<!-- row -->
 	<div class="row">
 
-		<p class="chapterTitel">Глава 7: Фильтрация данных (is_numeric, empty)</p>
+		<p class="chapterTitel" id="chapter7Level1">Глава 7: Фильтрация данных (is_numeric, empty)</p>
 
 		<!-- col 1 -->
 		<div class="col-md-3">
@@ -2170,7 +2712,7 @@ if(isset($userScore)) {
 		<!-- row -->
 	<div class="row">
 
-		<p class="chapterTitel">Глава 8: Продвинутые функции и логика</p>
+		<p class="chapterTitel" id="chapter8Level1">Глава 8: Продвинутые функции и логика</p>
 
 		<!-- col 1 -->
 		<div class="col-md-3">
