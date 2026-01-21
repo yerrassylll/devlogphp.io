@@ -3,6 +3,18 @@
 	padding: 0;
 }
 
+body {
+    cursor: url('../images/terran.cur'), auto;
+}
+
+a {
+    cursor: url('../images/sc2hyperlink.cur'), pointer;
+}
+
+.cardChapter:hover, .cardChapterName a:hover {
+    cursor: url('../images/sc2hyperlink.cur'), pointer;
+}
+
 .row {
     margin: 20px 0 30px 0;
 }
@@ -22,12 +34,67 @@
     font-size: 18px;
 }
 
+/* block chapter */
+
+.chapterBlock {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleLeveChap {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cardChapter {
+    width: 250px;
+    height: 80px;
+    border: 1px solid;
+    border-color: #c423ff;
+    border-radius: 10px;
+    margin: 10px 0 0 5px;
+    background-color: #2567ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardChapterName {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
+
+.cardChapterName a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .chapterTitel {
     font-weight: 600;
 }
 
 .txtB {
     font-weight: 700;
+}
+
+.btn.btn-primary {
+    background-color: #2567ff !important;
+    border-radius: 20px;
+    border: 1px solid;
+    border-color: #c423ff;
+    box-shadow: 10px 10px #c423ff;
+}
+
+.btn.btn-primary:hover {
+    cursor: url('../images/sc2hyperlink.cur'), pointer;
+}
+
+.btn.btn-primary:active {
+    outline: none;
+    border: none;
 }
 
 
